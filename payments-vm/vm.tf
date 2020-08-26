@@ -144,7 +144,6 @@ resource "azurerm_virtual_machine" "payments" {
         ca                = base64decode(data.terraform_remote_state.hcs.outputs.hcs_config.ca_file)
         consul_join_addr  = data.terraform_remote_state.hcs.outputs.hcs_config.consul_config.retry_join[0]
         consul_datacenter = data.terraform_remote_state.hcs.outputs.hcs_config.consul_config.datacenter
-        consul_gossip_key = data.terraform_remote_state.hcs.outputs.hcs_config.consul_config.encrypt
       }
     )
   }

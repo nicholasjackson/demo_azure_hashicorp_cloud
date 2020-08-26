@@ -10,4 +10,3 @@ resource "azurerm_resource_group" "example" {
 
 data "azurerm_client_config" "current" {
 }
-

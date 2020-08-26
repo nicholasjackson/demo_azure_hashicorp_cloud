@@ -6,12 +6,16 @@ variable "resource_group" {
   default = "hcs-example"
 }
 
-variable "accept_marketplace_aggrement" {
-  default = 1
+variable "accept_marketplace_agreement" {
+  default = false
 }
 
 variable "consul_version" {
   default = "v1.8.0"
+}
+
+variable "email" {
+  default = "test@test.com"
 }
 
 

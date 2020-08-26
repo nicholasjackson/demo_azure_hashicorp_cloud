@@ -28,6 +28,11 @@ resource "azurerm_kubernetes_cluster" "frontend" {
     client_id     = var.client_id
     client_secret = var.client_secret
   }
+
+  tags = {
+    Environment = "Production"
+    Nic = "Production"
+  }
 }
 
 provider "kubernetes" {

@@ -1,5 +1,5 @@
 resource "azurerm_marketplace_agreement" "hcs" {
-  count     = var.accept_marketplace_aggrement ? 1 : 0
+  count     = var.accept_marketplace_agreement ? 1 : 0
   publisher = "hashicorp-4665790"
   offer     = "hcs-production"
   plan      = "on-demand"
@@ -41,7 +41,7 @@ resource "azurerm_managed_application" "hcs" {
     blobContainerName     = random_string.blobcontainername.result
     clusterMode           = "DEVELOPMENT"
     clusterName           = "hashicorp-consul-cluster"
-    consulDataCenter      = "east-us"
+    consulDataCenter      = azurerm_resource_group.example.location
     numServers            = "1"
     numServersDevelopment = "1"
     automaticUpgrades     = "disabled"
@@ -52,7 +52,7 @@ resource "azurerm_managed_application" "hcs" {
     consulVnetCidr        = "10.0.0.0/24"
     location              = azurerm_resource_group.example.location 
     providerBaseURL       = "https://ama-api.hashicorp.cloud/consulama/2020-07-09"
-    email                 = "instruqt@hashicorp.com"
+    email                 = var.email
   }
 }
 
